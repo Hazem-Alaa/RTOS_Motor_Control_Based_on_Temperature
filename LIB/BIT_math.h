@@ -1,0 +1,27 @@
+#ifndef BIT_math
+#define BIT_math
+
+#define SET_BIT(VAR ,NUM_BIT)      VAR = VAR | (1<<NUM_BIT)
+#define CLR_BIT(VAR ,NUM_BIT)    VAR = VAR & ~(1<<NUM_BIT)
+#define GET_BIT(VAR ,NUM_BIT)      ((VAR>>NUM_BIT) & 1)
+//#define GET_BIT(VAR ,NUM_BIT)      ((VAR&(1<<NUM_BIT))>>NUM_BIT)
+#define TOGGLE_BIT(VAR ,NUM_BIT)  VAR = VAR ^ (1<<NUM_BIT)
+
+
+#define TOGGLE_BYTE(VAR)  VAR = VAR ^ 0b11111111
+#define SET_BYTE(VAR)     VAR = VAR | 0b11111111
+#define CLEAR_BYTE(VAR)   VAR = VAR & 0b00000000
+
+
+#define SET_LOW_NIBBLE(VAR)     VAR=VAR | 0b00001111
+#define SET_HIGH_NIBBLE(VAR)    VAR=VAR | 0b11110000
+
+#define CLEAR_LOW_NIBBLE(VAR)   VAR=VAR | 0b11110000
+#define CLEAR_HIGH_NIBBLE(VAR)  VAR=VAR | 0b00001111
+
+#define TOGGLE_NIBBLE(VAR)      VAR=VAR ~1
+
+#define CONC_BIT(A7,A6,A5,A4,A3,A2,A1,A0)  CONC_HELP(A7,A6,A5,A4,A3,A2,A1,A0)
+#define CONC_HELP(A7,A6,A5,A4,A3,A2,A1,A0) 0b##A7##A6##A5##A4##A3##A2##A1##A0
+
+#endif
